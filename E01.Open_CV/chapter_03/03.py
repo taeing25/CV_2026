@@ -61,7 +61,6 @@ while True:
     # s 키를 누르면 선택한 영역을 파일로 저장
     elif key == ord('s'):
         if roi is not None:
-            cv.imwrite('soccer_roi.jpg', roi)  # 이미지 파일로 저장
             cv.imwrite('soccer_full_selection.jpg', img)  # 전체 선택 영역이 포함된 이미지도 저장
             print("ROI가 'soccer_roi.jpg'로 저장되었습니다.")
         else:
