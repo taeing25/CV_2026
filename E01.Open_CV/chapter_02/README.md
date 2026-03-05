@@ -278,19 +278,5 @@ cv.destroyAllWindows()
 
 ---
 
-## 실행 전 준비물
-
-1. `soccer.jpg` 파일이 Python 파일과 같은 폴더에 있어야 함
-2. OpenCV 설치: `pip install opencv-python`
-
----
-
-## 사용 방법
-
-1. 프로그램 실행
-2. 이미지 창이 나타남
-3. 마우스 좌클릭하면서 드래그: 파란색으로 그리기
-4. 마우스 우클릭하면서 드래그: 빨간색으로 그리기
-5. `+` 키: 붓 크기 키우기
-6. `-` 키: 붓 크기 작게 하기
-7. `q` 키: 프로그램 종료
+## 결과
+![soccer_painted](https://github.com/user-attachments/assets/cbfdf9b9-355a-4ad5-bb30-7bb47918cadf)
