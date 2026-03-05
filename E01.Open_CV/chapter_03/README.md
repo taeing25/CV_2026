@@ -7,32 +7,7 @@
 ---
 
 ## 과제 설명
-
-### 목표
-이미지에서 특정 영역을 선택하고 처리하는 방법을 배웁니다:
-1. 마우스 드래그로 ROI(관심 영역) 선택하기
-2. 선택 중인 영역을 실시간으로 사각형으로 시각화하기
-3. 선택된 영역을 별도 창에 표시하기
-4. 선택된 영역을 파일로 저장하기
-5. 선택 영역 초기화하기
-
-### 학습 포인트
-- 마우스 드래그 이벤트 감지 (LBUTTONDOWN, MOUSEMOVE, LBUTTONUP)
-- NumPy 슬라이싱을 이용한 이미지 영역 추출
-- 사각형 그리기 (`rectangle` 함수)
-- 이미지 저장 (`imwrite`)
-- 창 관리 (`destroyWindow`)
-- 조건부 처리 (영역 유효성 검사)
-
-### 입력
-- `soccer.jpg` (기본 이미지)
-- 마우스 드래그로 ROI 영역 선택
-- 키보드 입력 (r: 리셋, s: 저장, q: 종료)
-
-### 출력
-- 선택된 ROI가 별도 창에 표시
-- 저장 시 `soccer_roi.jpg` 파일 생성
-
+<img width="641" height="413" alt="image" src="https://github.com/user-attachments/assets/5e1d358f-7bfd-4cd5-8bfa-e90e8b459ef6" />
 ---
 
 ### 필요한 라이브러리
