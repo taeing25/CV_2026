@@ -3,6 +3,7 @@
 원본 이미지(컬러)와 같은 이미지의 흑백(그레이스케일) 버전을 나란히 보여주는 프로그램입니다.
 
 마치 "원본 사진" vs "흑백 사진" 을 한 화면에 비교하는 것과 같습니다.
+<img width="662" height="364" alt="image" src="https://github.com/user-attachments/assets/5b9ab864-bfc3-4f16-ac31-ae3c31513013" />
 
 ---
 
