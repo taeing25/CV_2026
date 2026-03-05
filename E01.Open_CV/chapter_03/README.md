@@ -286,21 +286,9 @@ cv.destroyAllWindows()
 | NumPy 슬라이싱 | 배열에서 특정 범위를 잘라내는 방법 |
 | 전역 변수 | 함수 밖에서 선언된 변수로 여러 함수에서 공유 |
 
----
-
-## 실행 전 준비물
-
-1. `soccer.jpg` 파일이 Python 파일과 같은 폴더에 있어야 함
-2. OpenCV 설치: `pip install opencv-python`
 
 ---
 
-## 사용 방법
+## 결과
+![soccer_full_selection](https://github.com/user-attachments/assets/6009b4b8-8033-4edc-b762-692039460118)
 
-1. 프로그램 실행
-2. 이미지 창이 나타남
-3. 마우스 좌클릭하고 드래그: 초록색 사각형으로 영역 선택
-4. 마우스 버튼 떼기: 선택된 영역이 별도 창에 표시됨
-5. `r` 키: 영역 선택 리셋
-6. `s` 키: 선택된 영역을 파일로 저장
-7. `q` 키: 프로그램 종료
