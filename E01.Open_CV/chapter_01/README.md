@@ -186,10 +186,6 @@ cv.destroyAllWindows()
 
 ---
 
-## 실행 전 준비물
+## 결과
+![soccer_combined](https://github.com/user-attachments/assets/b73b429c-8a79-40d0-ab28-292c06974424)
 
-이 코드를 실행하려면 다음이 필요합니다:
-
-1. `soccer.jpg` 파일이 Python 파일과 같은 폴더에 있어야 함
-2. OpenCV 설치: `pip install opencv-python`
-3. NumPy 설치: `pip install numpy`
