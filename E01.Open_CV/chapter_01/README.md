@@ -7,26 +7,7 @@
 ---
 
 ## 과제 설명
-
-### 목표
-이미지 처리의 기본 개념을 배우기 위해 다음을 수행합니다:
-1. 이미지 파일을 컴퓨터 메모리에 로드하기
-2. 이미지 크기를 조정하기
-3. 컬러 이미지를 그레이스케일(흑백)로 변환하기
-4. 변환된 이미지와 원본을 나란히 비교하기
-
-### 학습 포인트
-- OpenCV의 기본 함수 사용 (`imread`, `resize`, `cvtColor`)
-- NumPy를 이용한 이미지 배열 처리
-- 이미지 채널과 색상 공간(BGR, GRAY) 이해
-- 이미지 합성 (`hstack`)
-
-### 입력
-- `soccer.jpg` (축구 경기 사진)
-
-### 출력
-- 원본 컬러 이미지와 그레이스케일 이미지가 나란히 표시된 창
-
+<img width="662" height="364" alt="image" src="https://github.com/user-attachments/assets/5b9ab864-bfc3-4f16-ac31-ae3c31513013" />
 ---
 
 ### 필요한 라이브러리
@@ -205,10 +186,6 @@ cv.destroyAllWindows()
 
 ---
 
-## 실행 전 준비물
+## 결과
+![soccer_combined](https://github.com/user-attachments/assets/b73b429c-8a79-40d0-ab28-292c06974424)
 
-이 코드를 실행하려면 다음이 필요합니다:
-
-1. `soccer.jpg` 파일이 Python 파일과 같은 폴더에 있어야 함
-2. OpenCV 설치: `pip install opencv-python`
-3. NumPy 설치: `pip install numpy`
