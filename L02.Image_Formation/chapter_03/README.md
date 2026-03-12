@@ -322,3 +322,9 @@ Depth 작다 → 카메라에 가까움
 Depth 크다 → 카메라에서 멀리 있음
 ```
 
+---
+### 출력 결과
+<img width="900" height="750" alt="combined_result" src="https://github.com/user-attachments/assets/aa23ae4c-6368-4d0a-8fa4-5be199be75d1" />
+
+
+
