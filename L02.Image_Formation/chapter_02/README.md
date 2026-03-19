@@ -15,7 +15,7 @@
 
 ## 1. 문제 정의
 
-### 🤔 이미지를 변환한다는 게 뭔가요?
+### 🤔 이미지를 변환
 
 이미지는 픽셀(점)들의 집합입니다.  
 각 픽셀은 `(x, y)` 좌표를 가지고 있는데,  
@@ -254,16 +254,6 @@ cv2.getRotationMatrix2D(center, 30, 0.8)
 | `(w, h)` → `(w*2, h*2)` | 출력 캔버스를 크게 해서 잘림 방지 |
 
 ---
-
-## ▶️ 실행 방법
-
-```bash
-pip install opencv-python numpy
-
-python affine_transform.py
-```
-
 ### 출력 결과
+![rose](https://github.com/user-attachments/assets/13e4ef67-2c53-45e3-a0af-f1b75ac8bcab)
 
-- **화면**: `Original` 창과 `Transformed` 창이 나란히 표시됨
-- **파일**: `rose.jpg` — 원본과 변환 이미지가 가로로 합쳐진 사진 저장

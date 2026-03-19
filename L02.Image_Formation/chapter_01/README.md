@@ -316,12 +316,6 @@ print(f"재투영 오차: {ret:.4f} px")
 
 ---
 
-## ▶️ 실행 방법
-
-```bash
-pip install opencv-python numpy
-
-python calibration.py
-```
-
 ### 출력 결과
+![calibration](https://github.com/user-attachments/assets/9e8fbdfd-9444-4282-a319-a34a048fd8cb)
+
