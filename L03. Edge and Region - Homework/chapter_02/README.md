@@ -143,19 +143,8 @@ plt.show()
 | **maxLineGap** | 직선 연결 최대 간격 | ↓ 내리면 덜 연결 |
 
 ---
+수정 전
+<img width="1200" height="600" alt="Figure_1" src="https://github.com/user-attachments/assets/1c7b0e7e-b272-4e6a-8d8e-ec5472617ad9" />
 
-## 💡 좋은 결과를 위한 팁
-
-1️⃣ Canny 임계값 조정
-   - 너무 낮으면 (100, 200): 노이즈까지 포함
-   - 적당함 (150, 250): 권장
-   - 너무 높으면 (200, 300): 중요한 에지 손실
-
-2️⃣ HoughLinesP 파라미터 조정
-   - threshold 70~90: 주요 직선만
-   - minLineLength 80~150: 이미지 크기에 맞춰 조정
-
-3️⃣ 테스트하며 최적값 찾기
-   - 다양한 threshold와 minLineLength 조합 시도
-
----
+수정 후
+<img width="1200" height="600" alt="Figure_1_수정 후" src="https://github.com/user-attachments/assets/d8d989ed-5e02-4881-9519-18f0f094e4fd" />

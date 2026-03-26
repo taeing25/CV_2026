@@ -138,3 +138,6 @@ plt.show()
 - 결과: 원본 이미지와 배경 제거된 이미지 비교
 
 ---
+<img width="1500" height="500" alt="Figure_1_수정" src="https://github.com/user-attachments/assets/056e90a0-0cdc-4292-bc30-649b65c7e1cf" />
+
+
