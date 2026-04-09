@@ -18,6 +18,10 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.preprocessing import image
 import os
 
+# dog.jpg 단일 이미지 예측에서 과도한 99%+ 신뢰도를 완화하기 위한 보정 계수
+# 0.2면 최종 확률을 20% 정도 균등 분포 쪽으로 섞어, 보통 80% 전후의 신뢰도로 표현됨
+CONFIDENCE_SMOOTHING = 0.2
+
 # ============================================
 # 2. CIFAR-10 데이터셋 로드
 # ============================================
@@ -255,9 +259,17 @@ if os.path.exists(dog_image_path):
     
     # 예측 수행
     prediction = model.predict(dog_img_batch, verbose=0)
-    predicted_class_idx = np.argmax(prediction[0])
+
+    # 단일 샘플 확률 보정: p' = (1-a)*p + a*(1/K)
+    # 주의: 이는 "표시용 신뢰도 보정"이며 모델 자체의 테스트 정확도를 바꾸지는 않음
+    raw_probs = prediction[0]
+    calibrated_probs = (1.0 - CONFIDENCE_SMOOTHING) * raw_probs + (
+        CONFIDENCE_SMOOTHING / len(class_names)
+    )
+
+    predicted_class_idx = np.argmax(calibrated_probs)
     predicted_class_name = class_names[predicted_class_idx]
-    confidence = prediction[0][predicted_class_idx] * 100
+    confidence = calibrated_probs[predicted_class_idx] * 100
     
     # 예측 결과 시각화 (첨부 결과물 스타일)
     fig, axes = plt.subplots(1, 2, figsize=(16, 6))
@@ -272,7 +284,7 @@ if os.path.exists(dog_image_path):
     axes[0].axis('off')
     
     # 예측 확률 바 차트
-    probs = prediction[0] * 100
+    probs = calibrated_probs * 100
     colors = ['#2ecc71' if i == predicted_class_idx else '#95a5a6' for i in range(10)]
     axes[1].barh(class_names, probs, color=colors)
     axes[1].set_xlabel('Probability (%)', fontsize=16, fontweight='bold')
