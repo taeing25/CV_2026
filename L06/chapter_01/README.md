@@ -189,15 +189,10 @@ update(detections)에서 수행하는 핵심 단계:
 - 현재 추적 수 (Tracks)
 
 ### 파일 결과물
+<img width="1286" height="754" alt="image" src="https://github.com/user-attachments/assets/96792e3f-a434-42a1-b770-fde96ef25027" />
 
 - --output 경로를 지정하면 추적 결과 영상(mp4)을 저장합니다.
 - --output을 지정하지 않으면 파일 저장 없이 화면 출력만 수행합니다.
-
-### 실행 예시
-
-python 01.py --source 0
-python 01.py --source ../slow_traffic_small.mp4
-python 01.py --source ../slow_traffic_small.mp4 --output result.mp4
 
 ### 해석 포인트
 
