@@ -1,27 +1,58 @@
 """SORT 알고리즘을 활용한 다중 객체 추적 예제.
 
-이 스크립트는 OpenCV DNN으로 YOLOv3 검출을 수행하고,
-검출된 박스를 SORT 방식으로 추적하여 각 객체에 고유 ID를 부여합니다.
+==============================================================================
+시스템 개요
+==============================================================================
+
+이 스크립트는 YOLOv3 딥러닝 모델로 객체를 검출하고,
+SORT(Simple Online and Realtime Tracking) 알고리즘으로 추적하여
+각 객체에 고유 ID를 부여합니다.
+
+처리 파이프라인:
+  1. 비디오 프레임 입력
+  2. YOLOv3 객체 검출
+  3. NMS(Non-Maximum Suppression)로 중복 박스 제거
+  4. 칼만필터(Kalman Filter)로 다음 프레임의 위치 예측
+  5. IoU(Intersection over Union) 기반으로 검출과 기존 트랙 매칭
+  6. 각 객체에 ID 부여 및 시각화
+
+주요 알고리즘:
+  - YOLO: 한 번의 forward pass로 객체 검출
+  - Kalman Filter: 불완전한 관측값으로부터 숨은 상태 추정
+  - Hungarian Algorithm: 최적의 일대일 매칭 문제 해결
 
 실행 예시:
-    python 01.py --source 0
-    python 01.py --source sample.mp4
+    python 01.py --source 0                    # 웹캠 사용
+    python 01.py --source sample.mp4           # 비디오 파일 사용
+    python 01.py --source 0 --output out.mp4   # 결과 저장
 
-모델 파일은 다음 위치에 있어야 합니다.
-    L06/yolov3.cfg
-    L06/yolov3.weights
+모델 파일은 다음 위치에 있어야 합니다:
+    L06/yolov3.cfg        # YOLOv3 네트워크 구조 정의
+    L06/yolov3.weights    # YOLOv3 학습된 가중치 (약 235MB)
 """
 
+# ============================================================================
+# 향후 타입 힌트 호환성 및 임포트 설정
+# ============================================================================
 from __future__ import annotations
 
-import argparse
-import math
-from pathlib import Path
-from typing import List, Sequence, Tuple
+# ============================================================================
+# 표준 라이브러리
+# ============================================================================
+import argparse      # 명령줄 인자 처리
+import math          # 수학 함수
+from pathlib import Path       # 경로 관리 (OS 독립적)
+from typing import List, Sequence, Tuple  # 타입 힌트
 
+# ============================================================================
+# 서드파티 라이브러리
+# ============================================================================
 try:
+    # OpenCV: 컴퓨터 비전 작업 (이미지/비디오 처리, DNN 추론)
     import cv2 as cv  # type: ignore[import-not-found]
+    # NumPy: 수치 계산 및 배열 처리
     import numpy as np
+    # SciPy: 과학 계산 (헝가리알 알고리즘 포함)
     from scipy.optimize import linear_sum_assignment
 except ImportError as exc:  # pragma: no cover - 실행 환경 안내용
     raise SystemExit(
